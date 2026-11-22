@@ -1,0 +1,776 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>¿A qué sabe Maldonado?</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..700&family=Pinyon+Script&family=Inter:ital,opsz,wght@0,14..32,400..900;1,14..32,400..700&display=swap">
+<style>
+/* Layout: revista territorial. Bandas a todo el ancho que alternan crema, oliva y tinta; contenido en columna de 1180px. Identidad de la campaña (Bodoni + Pinyon + Inter). */
+:root{
+  --crema:#F1E8D4; --crema2:#E8DCC2; --oliva:#3D4527; --oliva2:#566039; --vino:#8E1C1C; --vino2:#B5372E;
+  --tinta:#2B241E; --tierra:#5A3E27; --linea:rgba(61,69,39,.22); --blanco:#FBF7EE;
+  --display:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;--serif:'Bodoni Moda',Georgia,serif; --script:'Pinyon Script','Snell Roundhand',cursive; --sans:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--crema);color:var(--tinta);font-family:var(--sans);font-size:16px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--crema)}
+a{color:inherit}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.02;font-weight:800;letter-spacing:-.025em}
+p{margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.band{padding-block:88px}
+.band.oliva{background:var(--oliva);color:var(--crema)}
+.band.tinta{background:var(--tinta);color:var(--crema)}
+.band.crema2{background:var(--crema2)}
+.eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;font-weight:600;color:var(--vino)}
+.oliva .eyebrow,.tinta .eyebrow{color:#E7C9A0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:32px 56px;align-items:end;margin-bottom:44px}
+.sec-head h2{font-size:clamp(38px,6vw,72px);font-weight:900;letter-spacing:-.035em}
+.sec-head h2 em{font-family:var(--script);font-style:normal;font-weight:400;color:var(--vino);font-size:1.12em;letter-spacing:0}
+.oliva .sec-head h2 em,.tinta .sec-head h2 em{color:#E7C9A0}
+.sec-head .lead{font-size:18px;max-width:52ch;color:inherit;opacity:.88}
+@media (max-width:760px){.sec-head{grid-template-columns:1fr}}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:15px 22px;border-radius:2px;border:1.5px solid currentColor;background:transparent;color:inherit;cursor:pointer;text-decoration:none;transition:background .2s,color .2s}
+.btn.solid{background:var(--vino);border-color:var(--vino);color:var(--blanco)}
+.btn.solid:hover{background:var(--vino2);border-color:var(--vino2)}
+.btn:hover{background:var(--tinta);color:var(--crema);border-color:var(--tinta)}
+.oliva .btn:hover,.tinta .btn:hover,.hero .btn:hover{background:var(--crema);color:var(--tinta);border-color:var(--crema)}
+:focus-visible{outline:2px solid var(--vino);outline-offset:3px}
+.chip{display:inline-flex;align-items:center;font:600 12px/1 var(--sans);letter-spacing:.06em;padding:8px 12px;border:1.3px solid var(--oliva);color:var(--oliva);border-radius:999px;background:transparent;cursor:pointer;white-space:nowrap}
+.chip[aria-pressed="true"]{background:var(--oliva);color:var(--crema)}
+.tag{display:inline-block;font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:6px 9px;border-radius:2px}
+.tag.prov{background:#F3D9A4;color:#5A3E27}
+.tag.conf{background:var(--oliva);color:var(--crema)}
+.tag.pend{background:transparent;border:1px dashed var(--tierra);color:var(--tierra)}
+
+/* Nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(241,232,212,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.brand{font-family:var(--display);font-weight:700;font-size:20px;text-decoration:none;white-space:nowrap}
+.brand span{font-family:var(--script);font-weight:400;color:var(--vino);font-size:1.25em}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+.nav ul a{font-size:13px;font-weight:600;text-decoration:none;letter-spacing:.02em;white-space:nowrap}
+.nav ul a:hover{color:var(--vino)}
+.nav ul a.nav-ig{color:var(--vino);border:1.3px solid var(--vino);padding:6px 10px;border-radius:2px}
+.nav ul a.nav-ig:hover{background:var(--vino);color:var(--blanco)}
+.menu-btn{display:none;background:none;border:1.5px solid var(--tinta);padding:9px 12px;font:600 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;color:var(--tinta)}
+@media (max-width:1080px){.nav ul{display:none}.menu-btn{display:block}
+ .nav ul.open{display:flex;flex-direction:column;position:absolute;left:0;right:0;top:64px;background:var(--crema);padding:12px max(16px,env(safe-area-inset-left,0px)) 24px;border-bottom:1px solid var(--linea);gap:4px}
+ .nav ul.open a{display:block;padding:10px 0;font-size:16px}}
+
+/* Hero */
+.hero{position:relative;color:var(--crema);background:var(--tinta);overflow:hidden}
+.hero .bg{position:absolute;inset:-4%;background:url(img/lasespinas.jpg) center/cover;transform:scale(1.04);transition:transform .6s ease-out}
+.hero .bgv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.hero::after{z-index:1;content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,24,18,.55),rgba(28,24,18,.25) 40%,rgba(28,24,18,.82))}
+.hero .wrap{position:relative;z-index:2;padding-block:110px 64px;display:grid;gap:36px}
+.hero h1{font-size:clamp(44px,10.5vw,148px);font-weight:900;letter-spacing:-.04em;line-height:.9}
+.hero h1 .q{font-family:var(--script);font-weight:400;display:block;font-size:.55em;letter-spacing:0;color:#F0D3A8;margin-bottom:-.05em}
+.hero p.lead{font-family:var(--display);font-style:italic;font-size:clamp(20px,2.4vw,28px);max-width:30ch;line-height:1.3}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:12px 32px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;opacity:.85;border-top:1px solid rgba(241,232,212,.35);padding-top:20px}
+.portal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;background:var(--tinta)}
+.portal a{position:relative;aspect-ratio:3/4;max-width:100%;overflow:hidden;color:var(--crema);text-decoration:none;display:flex;align-items:flex-end}
+.portal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.portal a:hover img{transform:scale(1.05)}
+.portal a::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(28,24,18,.85))}
+.portal div{position:relative;z-index:2;padding:22px}
+.portal b{display:block;font-family:var(--display);font-size:26px;line-height:1.05}
+.portal small{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.85}
+@media (max-width:760px){.portal{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Mapa */
+.map-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:900px){.map-grid{grid-template-columns:1fr}}
+.map-box{background:#E9DEC6;border:1px solid var(--linea);position:relative}
+.map-box svg{width:100%;height:auto;display:block}
+.map-box .dept{fill:#F7F0DF;stroke:var(--oliva);stroke-width:1.2}
+.map-box .vec{fill:#E2D5B8;stroke:#C9B994;stroke-width:.8}
+.map-box .sea{fill:#C9D3CC}
+.map-box .town circle{fill:var(--tinta)}
+.map-box .town text{font:600 10px var(--sans);fill:var(--tierra);letter-spacing:.08em;text-transform:uppercase}
+.mapimg{position:relative;overflow:hidden;border:1px solid var(--linea);background:#EFE6D3}
+.mapimg img{width:100%;height:auto}
+.pin{position:absolute;width:5.2%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:none;background:transparent;cursor:pointer;padding:0;transition:box-shadow .2s,background .2s}
+.pin:hover,.pin.on{box-shadow:0 0 0 4px var(--crema),0 0 0 7px var(--vino)}
+.pin.off{background:rgba(239,230,211,.82)}
+.pin span{position:absolute;left:50%;bottom:130%;transform:translateX(-50%);white-space:nowrap;background:var(--tinta);color:var(--crema);font:600 12px var(--sans);padding:5px 8px;opacity:0;pointer-events:none;transition:opacity .2s}
+.pin:hover span,.pin:focus-visible span,.pin.on span{opacity:1}
+.mk{cursor:pointer}
+.mk circle.o{fill:var(--vino);stroke:var(--crema);stroke-width:2.5;transition:r .2s}
+.mk text{font:700 11px var(--sans);fill:var(--blanco);pointer-events:none}
+.mk:hover circle.o,.mk.on circle.o{fill:var(--tinta)}
+.mk.off{opacity:.18;pointer-events:none}
+.map-note{font-size:12px;color:var(--tierra);padding:10px 14px;border-top:1px solid var(--linea)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.filters label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;width:100%;color:var(--tierra)}
+select{font:500 15px var(--sans);padding:11px 12px;border:1.3px solid var(--oliva);background:var(--blanco);color:var(--tinta);border-radius:2px;max-width:100%}
+.fsel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:16px}
+.fsel select{width:100%}
+@media (max-width:560px){.fsel{grid-template-columns:1fr}}
+.ficha{background:var(--blanco);border:1px solid var(--linea)}
+.ficha .ph{aspect-ratio:16/10;max-width:100%;background:var(--crema2);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.ficha .ph img{width:100%;height:100%;object-fit:cover}
+.ficha .ph img.logo{object-fit:contain;padding:40px;background:var(--oliva)}
+.logo.light{background:#EFE6D3!important}
+.mark{height:52px;width:auto;max-width:180px;object-fit:contain}
+.ficha .in{padding:24px;display:grid;gap:14px}
+.ficha h3{font-size:32px}
+.ficha .loc{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--vino)}
+.kv{display:grid;gap:10px;font-size:14px}
+.kv div{display:grid;grid-template-columns:108px minmax(0,1fr);gap:10px;border-top:1px solid var(--linea);padding-top:10px}
+.kv dt{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--tierra)}
+.kv dd{margin:0;min-width:0;overflow-wrap:anywhere}
+@media (max-width:560px){.kv div{grid-template-columns:1fr;gap:4px}}
+.cepas{display:flex;flex-wrap:wrap;gap:6px}
+.cepas span{font-size:12px;font-weight:600;padding:5px 9px;border-radius:999px;background:var(--crema2);color:var(--oliva)}
+.list-min{display:grid;gap:2px;margin-top:14px;max-height:260px;overflow:auto;border:1px solid var(--linea)}
+.list-min button{all:unset;cursor:pointer;display:flex;justify-content:space-between;gap:10px;padding:10px 14px;background:var(--blanco);font-size:14px}
+.list-min button:hover,.list-min button.on{background:var(--oliva);color:var(--crema)}
+.list-min small{opacity:.7;font-size:12px}
+
+/* Bodegas directorio: mosaico editorial */
+.dir{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:22px}
+.bod{grid-column:span 4;background:var(--blanco);border:1px solid var(--linea);display:flex;flex-direction:column;cursor:pointer;text-align:left;font:inherit;color:inherit;padding:0}
+.bod.big{grid-column:span 8;flex-direction:row}
+.bod.big .im{flex:1.2;aspect-ratio:auto;min-height:340px}
+.bod.big .tx{flex:1}
+.bod .im{aspect-ratio:4/3;max-width:100%;overflow:hidden;background:var(--crema2);position:relative}
+.bod .im img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.bod:hover .im img{transform:scale(1.04)}
+.bod .im img.logo{object-fit:contain;padding:36px;background:var(--oliva)}
+.bod .tx{padding:20px 22px 24px;display:grid;gap:10px;align-content:start}
+.bod h3{font-size:28px}
+.bod .zona{position:absolute;left:14px;top:14px;background:var(--crema);color:var(--tinta);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;padding:6px 9px}
+.bod .tipo{font-size:12px;color:var(--tierra)}
+.bod .more{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--vino);margin-top:4px}
+@media (max-width:980px){.bod,.bod.big{grid-column:span 6;flex-direction:column}.bod.big .im{min-height:0;aspect-ratio:4/3}}
+@media (max-width:620px){.bod,.bod.big{grid-column:span 12}}
+
+/* Modal */
+dialog{border:none;padding:0;max-width:min(920px,calc(100vw - 32px));width:100%;background:var(--crema);color:var(--tinta);max-height:calc(100vh - 40px)}
+dialog::backdrop{background:rgba(28,24,18,.7)}
+.mod{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}
+.mod .ph{min-height:100%;background:var(--crema2)}
+.mod .ph img{width:100%;height:100%;object-fit:cover;max-height:640px}
+.mod .ph img.logo{object-fit:contain;padding:48px;background:var(--oliva)}
+.mod .in{padding:32px;display:grid;gap:16px;align-content:start;overflow:auto;max-height:calc(100vh - 40px)}
+.mod h3{font-size:40px}
+.gal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.gal img{aspect-ratio:1;max-width:100%;width:100%;object-fit:cover}
+.mod p.desc{font-family:var(--display);font-size:18px;line-height:1.5}
+.x{position:absolute;right:12px;top:12px;width:44px;height:44px;border-radius:50%;border:none;background:var(--tinta);color:var(--crema);font-size:22px;cursor:pointer;z-index:3}
+@media (max-width:760px){.mod{grid-template-columns:1fr}.mod .ph img{max-height:260px}}
+
+/* Cepas */
+.cepa-wrap{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:28px}
+@media (max-width:860px){.cepa-wrap{grid-template-columns:1fr}}
+.cepa-list{display:grid;gap:4px;align-content:start}
+.cepa-list > button{all:unset;cursor:pointer;display:flex;align-items:center;gap:14px;padding:12px 14px;border-bottom:1px solid rgba(241,232,212,.18);font-family:var(--display);font-size:24px}
+.cepa-list > button .dot{width:16px;height:16px;border-radius:50%;flex:none;box-shadow:inset -3px -3px 6px rgba(0,0,0,.35)}
+.cepa-list > button small{margin-left:auto;font:600 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+.cepa-list > button.on{background:rgba(241,232,212,.1)}
+.cepa-list .flt{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.cepa-list .flt .chip{border-color:#E7C9A0;color:#E7C9A0}
+.cepa-list .flt .chip[aria-pressed="true"]{background:#E7C9A0;color:var(--tinta)}
+.cepa-card{display:grid;grid-template-columns:minmax(0,280px) minmax(0,1fr);gap:28px;background:rgba(241,232,212,.06);border:1px solid rgba(241,232,212,.18);padding:28px}
+@media (max-width:620px){.cepa-card{grid-template-columns:1fr}}
+.cepa-card .cimg{width:100%;aspect-ratio:3/4;max-width:100%;overflow:hidden;position:relative}
+.cepa-card .cimg img{width:100%;height:100%;object-fit:cover}
+.cepa-card .cimg small{position:absolute;left:8px;bottom:8px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:rgba(28,24,18,.6);color:var(--crema);padding:4px 6px}
+.cepa-card h3{font-size:clamp(40px,5vw,60px)}
+.cepa-card .t{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#E7C9A0;margin-bottom:6px}
+.cepa-card .blk{display:grid;gap:16px}
+.cepa-card .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:620px){.cepa-card .two{grid-template-columns:1fr}}
+.cepa-card .cepas span{background:rgba(241,232,212,.12);color:var(--crema)}
+
+/* Talleres */
+.tall-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+@media (max-width:960px){.tall-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.tall-grid{grid-template-columns:1fr}}
+.tall{background:var(--blanco);border:1px solid var(--linea);display:flex;flex-direction:column}
+.tall.gas .post{display:block;aspect-ratio:4/5;max-width:100%;overflow:hidden}
+.tall.gas .post img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.tall.gas .post:hover img{transform:scale(1.03)}
+.tall .ft .btn{flex:1 1 150px;justify-content:center;padding:14px 12px;font-size:12px}
+.tall .top{aspect-ratio:16/9;max-width:100%;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:18px;color:var(--crema)}
+.tall .top img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tall .top::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,24,18,.05),rgba(28,24,18,.7))}
+.tall .top span{position:relative;z-index:2;font-family:var(--display);font-size:46px;font-weight:800;line-height:1}
+.tall .top.solid{background:var(--oliva)}
+.tall .top.solid.r{background:var(--vino)}
+.tall .top.solid::after{display:none}
+.tall .bd{padding:22px;display:grid;gap:12px;flex:1;align-content:start}
+.tall h3{font-size:28px}
+.tall .info{font-size:13px;display:grid;gap:4px;color:var(--tierra)}
+.tall .info b{color:var(--tinta)}
+.tall .ft{padding:0 22px 22px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.subhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:56px 0 22px;border-top:1.5px solid var(--tinta);padding-top:18px}
+.subhead h3{font-size:32px}
+.subhead p{font-size:15px;max-width:60ch;color:var(--tierra)}
+form{display:grid;gap:14px}
+form .row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:560px){form .row{grid-template-columns:1fr}}
+form label{display:grid;gap:6px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--tierra)}
+input,textarea{font:500 16px var(--sans);padding:12px;border:1.3px solid var(--oliva);background:var(--blanco);color:var(--tinta);border-radius:2px;width:100%}
+input[aria-invalid="true"],select[aria-invalid="true"]{border-color:var(--vino);background:#FBEDEA}
+.err{font-size:12px;color:var(--vino);text-transform:none;letter-spacing:0;font-weight:600;min-height:0}
+.okbox{background:var(--oliva);color:var(--crema);padding:20px;display:grid;gap:8px}
+.okbox b{font-family:var(--display);font-size:24px}
+.proto{font-size:12px;background:#F3D9A4;color:var(--tierra);padding:10px 12px}
+
+/* Vendimia */
+.cal{display:grid;gap:40px}
+.mes h3{font-size:52px;font-family:var(--script);font-weight:400;color:#E7C9A0;margin-bottom:12px}
+.grid7{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.grid7 .h{font-size:11px;letter-spacing:.16em;font-weight:700;opacity:.65;padding:0 6px 6px}
+.cell{min-height:118px;background:rgba(241,232,212,.06);border:1px solid rgba(241,232,212,.14);padding:8px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.cell.empty{background:transparent;border-color:transparent}
+.cell .dn{font-family:var(--display);font-size:20px;line-height:1;font-variant-numeric:tabular-nums}
+.cell.has{background:rgba(241,232,212,.12);border-color:rgba(231,201,160,.45)}
+.evc{display:block;font:600 11px/1.25 var(--sans);padding:5px 6px;background:#E7C9A0;color:var(--tinta);text-decoration:none;border-radius:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.evc.low{background:rgba(231,201,160,.22);color:var(--crema)}
+.evc:hover{background:var(--crema);color:var(--tinta)}
+@media (max-width:760px){.cell{min-height:64px;padding:5px}.cell .dn{font-size:15px}.evc{font-size:0;padding:0;height:7px;border-radius:4px}.grid7 .h{padding:0 2px 4px;font-size:10px}}
+.ev-list{display:grid;gap:12px;margin-top:36px}
+.ev{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:20px;align-items:center;padding:18px 20px;border:1px solid rgba(241,232,212,.2);background:rgba(241,232,212,.04)}
+.ev.sel{background:rgba(241,232,212,.14);border-color:#E7C9A0}
+.ev .d{font-family:var(--display);font-size:22px;line-height:1.1}
+.ev .d small{display:block;font:600 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-top:4px}
+.ev h4{margin:0;font-family:var(--display);font-size:22px;font-weight:600}
+.ev p{font-size:14px;opacity:.85}
+.ev .src{font-size:12px;opacity:.65;margin-top:4px}
+@media (max-width:700px){.ev{grid-template-columns:1fr}}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;margin-top:20px;align-items:center}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:50%;vertical-align:-2px;margin-right:6px}
+
+/* Historias */
+.hist{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:28px;align-items:stretch}
+@media (max-width:900px){.hist{grid-template-columns:1fr}}
+.vplayer{margin:0;background:var(--tinta);color:var(--crema);display:grid}
+.vplayer video{width:100%;aspect-ratio:16/9;max-width:100%;display:block;background:#000}
+.vplayer figcaption{padding:20px 22px;display:grid;gap:4px}
+.vplayer figcaption b{font-family:var(--display);font-size:26px;font-weight:800}
+.vplayer figcaption span:last-child{font-size:14px;opacity:.8}
+.vplayer .eyebrow{color:#F0D3A8}
+.video{position:relative;min-height:380px;display:flex;align-items:flex-end;color:var(--crema);overflow:hidden;text-decoration:none}
+.video img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.video::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,24,18,.1),rgba(28,24,18,.8))}
+.video .play{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:88px;height:88px;border-radius:50%;background:rgba(241,232,212,.92);z-index:2;display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.video:hover .play{transform:translate(-50%,-50%) scale(1.08)}
+.video .play::before{content:"";border-left:24px solid var(--vino);border-top:15px solid transparent;border-bottom:15px solid transparent;margin-left:6px}
+.video .cap{position:relative;z-index:2;padding:26px;display:grid;gap:6px}
+.video .cap b{font-family:var(--display);font-size:30px}
+.hist-t{font-size:19px;line-height:1.55;max-width:42ch;color:var(--tinta)}
+.caps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:36px}
+@media (max-width:760px){.caps{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:62%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}}
+.cap-c{position:relative;aspect-ratio:4/5;max-width:100%;overflow:hidden;display:flex;align-items:flex-end;color:var(--crema);text-decoration:none;scroll-snap-align:start}
+.cap-c img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.cap-c:hover img{transform:scale(1.05)}
+.cap-c::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,24,18,0) 45%,rgba(28,24,18,.85))}
+.cap-c span{position:relative;z-index:2;padding:16px;display:grid;gap:4px}
+.cap-c small{font:600 10px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:#F0D3A8}
+.cap-c b{font-size:17px;font-weight:700;line-height:1.2}
+
+/* Noticias */
+.news{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+@media (max-width:960px){.news{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.news{grid-template-columns:1fr}}
+.nw{background:var(--blanco);border:1px solid var(--linea);display:flex;flex-direction:column}
+.nw .im{aspect-ratio:16/10;max-width:100%;overflow:hidden;background:var(--crema2)}
+.nw .im img{width:100%;height:100%;object-fit:cover}
+.nw .bd{padding:20px;display:grid;gap:10px;flex:1;align-content:start}
+.nw .m{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--vino)}
+.nw h3{font-size:23px;line-height:1.15}
+.nw p{font-size:14px;color:var(--tierra)}
+.nw .ft{padding:0 20px 20px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:var(--tierra)}
+.nw .ft a{font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--vino);text-decoration:none}
+
+/* Territorio */
+.terr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:0;border:1px solid var(--linea);background:var(--blanco)}
+@media (max-width:860px){.terr{grid-template-columns:1fr}}
+.terr .tabs{display:grid;align-content:start}
+.terr .tabs button{all:unset;cursor:pointer;padding:20px 24px;border-bottom:1px solid var(--linea);display:grid;gap:2px}
+.terr .tabs button b{font-family:var(--display);font-size:26px;font-weight:600}
+.terr .tabs button small{font-size:13px;color:var(--tierra)}
+.terr .tabs button.on{background:var(--oliva);color:var(--crema)}
+.terr .tabs button.on small{color:#E7C9A0}
+.terr .pane{position:relative;min-height:440px;display:flex;align-items:flex-end;color:var(--crema);overflow:hidden}
+.terr .pane img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .4s}
+.terr .pane::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,24,18,0) 25%,rgba(28,24,18,.88))}
+.terr .pane .t{position:relative;z-index:2;padding:30px;display:grid;gap:12px;max-width:60ch}
+.terr .pane h3{font-size:40px}
+.terr .pane p{font-size:16px}
+.terr .pane .src{font-size:12px;opacity:.75}
+
+/* Contacto */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+.ig{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--crema);justify-self:start;max-width:100%;font:300 16px/1 var(--sans);letter-spacing:.06em;padding-bottom:6px;border-bottom:1px solid rgba(241,232,212,.3);transition:border-color .2s,color .2s}
+.ig:hover{border-color:#E7C9A0;color:#E7C9A0}
+.ig svg{flex:none}
+.ig b{font-weight:500;color:#E7C9A0;letter-spacing:.1em}
+.share{display:flex;gap:10px;flex-wrap:wrap}
+footer{background:var(--tinta);color:var(--crema);padding-block:40px;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--tinta);color:var(--crema);padding:12px 18px;font-size:14px;z-index:90}
+.totop{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:46px;height:46px;border-radius:50%;background:var(--vino);color:var(--blanco);border:none;font-size:20px;cursor:pointer;z-index:40}
+.rv{transition:transform .7s ease,opacity .7s ease}
+.rv.pre{transform:translateY(18px)}
+</style>
+
+<nav class="nav" aria-label="Principal">
+ <div class="wrap">
+  <a class="brand" href="#inicio">¿A qué <span>sabe</span> Maldonado?</a>
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu">Menú</button>
+  <ul id="menu">
+   <li><a href="#mapa">Mapa</a></li><li><a href="#bodegas">Bodegas</a></li><li><a href="#cepas">Cepas</a></li>
+   <li><a href="#talleres">Talleres</a></li><li><a href="#vendimia">Vendimia</a></li><li><a href="#historias">Historias</a></li>
+   <li><a href="#actualidad">Actualidad</a></li><li><a href="#territorio">Territorio</a></li><li><a href="#contacto">Contacto</a></li><li><a class="nav-ig" href="https://www.instagram.com/aquesabemaldonado/" target="_blank" rel="noopener">Instagram</a></li>
+  </ul>
+ </div>
+</nav>
+
+<header class="hero" id="inicio">
+ <div class="bg" id="heroBg" role="img" aria-label="Vista aérea de viñedos frente al mar en Punta Negra, Maldonado"></div>
+ <video class="bgv" id="heroVid" src="capsula.mp4" poster="img/lasespinas.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+ <div class="wrap">
+  <span class="eyebrow" style="color:#F0D3A8">Vinos del departamento de Maldonado</span>
+  <h1><span class="q">¿A qué sabe</span>MALDONADO?</h1>
+  <p class="lead">Al mar, a la piedra de las sierras y al trabajo de quienes cultivan la uva. Una invitación a descubrir el territorio a través de sus vinos.</p>
+  <div class="ctas">
+   <a class="btn solid" href="#cepas">Descubrir los vinos</a>
+   <a class="btn" href="#bodegas">Explorar las bodegas</a>
+   <a class="btn" href="#talleres">Ver experiencias</a>
+   <a class="btn" href="#territorio">Conocer el territorio</a>
+  </div>
+  <div class="meta"><a href="https://www.instagram.com/aquesabemaldonado/" target="_blank" rel="noopener" style="text-decoration:none">@aquesabemaldonado</a><span id="mCount"></span><span>Región Oceánica · INAVI</span><span>Territorio · Personas · Producto</span></div>
+ </div>
+</header>
+
+<section class="portal" aria-label="Secciones destacadas">
+ <a href="#mapa"><img src="img/camino-sierra.jpg" alt="Camino rural hacia las sierras"><div><small>Mapa del vino</small><b>Dónde se hace el vino</b></div></a>
+ <a href="#cepas"><img src="img/copa.jpg" alt="Copa de vino tinto frente al mar"><div><small>Cepas</small><b>Qué hay en la copa</b></div></a>
+ <a href="#vendimia"><img src="img/vinosdelmar.jpg" alt="Cosechador con una caja de uvas en el viñedo"><div><small>Agenda 2027</small><b>Mes de la Vendimia</b></div></a>
+ <a href="#talleres"><img src="img/vinaeden.jpg" alt="Barricas de Viña Edén junto a la pared de piedra de la sierra"><div><small>Inscripciones</small><b>Talleres y experiencias</b></div></a>
+</section>
+
+<section class="band" id="mapa">
+ <div class="wrap">
+  <div class="sec-head rv">
+   <div><span class="eyebrow">Mapa del vino</span><h2>Las bodegas, <em>en el mapa</em></h2></div>
+   <p class="lead">Doce bodegas distribuidas entre la costa y las sierras. Cada punto del mapa abre la ficha de la bodega, y los filtros permiten buscar por municipio, cepa o tipo de experiencia.</p>
+  </div>
+  <div class="map-grid">
+   <div>
+    <div class="fsel">
+     <label class="sr" style="display:grid;gap:6px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--tierra)">Municipio<select id="fMun"><option value="">Todos</option></select></label>
+     <label style="display:grid;gap:6px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--tierra)">Cepa<select id="fCepa"><option value="">Todas</option></select></label>
+     <label style="display:grid;gap:6px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--tierra)">Experiencia<select id="fExp"><option value="">Todas</option></select></label>
+    </div>
+    <div class="mapimg" id="mapImg"><img src="img/mapa.jpg" alt="Mapa ilustrado del departamento de Maldonado con las doce bodegas numeradas de oeste a este"></div>
+     <p class="map-note">Mapa del vino de Maldonado, primera edición 2026. La ubicación de cada bodega es aproximada, según su dirección publicada.</p>
+   </div>
+   <div>
+    <div class="ficha" id="ficha" aria-live="polite"></div>
+    <div class="list-min" id="mapList" aria-label="Bodegas en el mapa"></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="band crema2" id="bodegas">
+ <div class="wrap">
+  <div class="sec-head rv">
+   <div><span class="eyebrow">Las bodegas</span><h2>Quién hace <em>el vino</em></h2></div>
+   <p class="lead">Desde la costa de José Ignacio hasta las sierras de Carapé, cada bodega tiene su paisaje, su escala y su manera de trabajar.</p>
+  </div>
+  <div class="dir" id="dir"></div>
+ </div>
+</section>
+
+<section class="band tinta" id="cepas">
+ <div class="wrap">
+  <div class="sec-head rv">
+   <div><span class="eyebrow">Los vinos y sus cepas</span><h2>Qué hay <em>en la copa</em></h2></div>
+   <p class="lead">Una cepa es la variedad de uva. Un vino puede elaborarse con una sola cepa o con un corte de varias. Cada ficha describe la variedad y las bodegas de Maldonado que la trabajan.</p>
+  </div>
+  <div class="cepa-wrap">
+   <div class="cepa-list" id="cepaList"><div class="flt" id="cepaFlt"></div></div>
+   <div id="cepaCard"></div>
+  </div>
+ </div>
+</section>
+
+<section class="band" id="talleres">
+ <div class="wrap">
+  <div class="sec-head rv">
+   <div><span class="eyebrow">Inscripciones abiertas</span><h2>Talleres y <em>experiencias</em></h2></div>
+   <p class="lead">Encuentros para conocer de cerca los vinos de Maldonado: un ciclo dirigido al sector gastronómico y propuestas abiertas a los residentes.</p>
+  </div>
+  <div class="subhead"><h3>«Maldonado se sirve»</h3><p>Ciclo de tres talleres para el sector gastronómico en la Corporación Gastronómica de Punta del Este. <b style="color:var(--vino)">Inscripciones hasta el miércoles 18 de noviembre · cupos limitados.</b></p></div>
+  <div class="tall-grid" id="tallGas"></div>
+  <div class="subhead"><h3>Para residentes</h3><p>Encuentros abiertos a los residentes de Maldonado. Las fechas se comunicarán a quienes completen la preinscripción.</p></div>
+  <div class="tall-grid" id="tallRes"></div>
+ </div>
+</section>
+
+<section class="band oliva" id="vendimia">
+ <div class="wrap">
+  <div class="sec-head rv">
+   <div><span class="eyebrow">Mes de la Vendimia · Agenda 2027</span><h2>La cosecha <em>se celebra</em></h2></div>
+   <p class="lead">En Uruguay la vendimia va de enero a marzo. Armamos esta agenda con lo que las bodegas del departamento hicieron en 2025 y 2026. Ninguna había anunciado fechas para 2027 al momento de prepararla.</p>
+  </div>
+  <div class="cal" id="cal"></div>
+  <p style="font-size:13px;opacity:.75;margin-top:18px">Fechas estimadas a partir de las ediciones 2025 y 2026. Cada evento enlaza a nuestro Instagram.</p>
+  <div class="ev-list" id="evList"></div>
+ </div>
+</section>
+
+<section class="band" id="historias">
+ <div class="wrap">
+  <div class="sec-head rv">
+   <div><span class="eyebrow">Historias que se cultivan</span><h2>Las personas <em>detrás del vino</em></h2></div>
+   <p class="lead">Una serie de cápsulas audiovisuales de 45 a 90 segundos con las personas que cultivan y elaboran el vino en Maldonado: su trabajo, sus decisiones y sus historias.</p>
+  </div>
+  <div class="hist">
+   <figure class="vplayer">
+    <video controls preload="metadata" poster="img/capsula-poster.jpg" src="capsula.mp4" aria-label="Adelanto de la serie Historias que se cultivan"></video>
+    <figcaption><span class="eyebrow">Adelanto</span><b>Historias que se cultivan</b><span>Mar, viñedo, bodega y mesa: el tono de la serie en 36 segundos. Se recomienda activar el sonido.</span></figcaption>
+   </figure>
+   <div>
+    <p class="hist-t">Ocho capítulos que se estrenan cada dos semanas en nuestro Instagram. Cada uno se detiene en una persona, una tarea o una decisión detrás del vino de Maldonado.</p>
+   </div>
+  </div>
+  <div class="caps" id="caps" aria-label="Capítulos de la serie"></div>
+ </div>
+</section>
+
+<section class="band crema2" id="actualidad">
+ <div class="wrap">
+  <div class="sec-head rv">
+   <div><span class="eyebrow">Actualidad</span><h2>Noticias <em>del vino</em></h2></div>
+   <p class="lead">Resúmenes propios de lo que se publicó sobre el vino de Maldonado. Cada nota enlaza a su fuente original.</p>
+  </div>
+  <div class="filters" id="newsFlt"></div>
+  <div class="news" id="news"></div>
+ </div>
+</section>
+
+<section class="band" id="territorio">
+ <div class="wrap">
+  <div class="sec-head rv">
+   <div><span class="eyebrow">El territorio</span><h2>El territorio <em>en una copa</em></h2></div>
+   <p class="lead">El mar, las sierras, los suelos y el clima le dan a estos vinos su carácter. Y detrás, las personas que trabajan la tierra todo el año.</p>
+  </div>
+  <div class="terr">
+   <div class="tabs" id="terrTabs" role="tablist"></div>
+   <div class="pane" id="terrPane"></div>
+  </div>
+ </div>
+</section>
+
+<section class="band tinta" id="contacto">
+ <div class="wrap contact">
+  <div style="display:grid;gap:22px;align-content:start">
+   <span class="eyebrow">Contacto y participación</span>
+   <h2 style="font-size:clamp(38px,6vw,64px)">Bodegas, restaurantes y propuestas</h2>
+   <p style="opacity:.85;max-width:46ch">Para sumarse a la campaña, proponer una actividad o consultar por los talleres, puede escribirnos a través de este formulario.</p>
+   <a class="ig" href="https://www.instagram.com/aquesabemaldonado/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E7C9A0" stroke-width="1.3" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="#E7C9A0" stroke="none"/></svg><span><b>IG:</b> @aquesabemaldonado</span></a>
+   <div class="share">
+    <button class="btn" type="button" id="copyLink">Copiar enlace</button>
+    <a class="btn" href="https://wa.me/?text=%C2%BFA%20qu%C3%A9%20sabe%20Maldonado%3F%20Descubr%C3%AD%20los%20vinos%20del%20departamento" target="_blank" rel="noopener">Compartir por WhatsApp</a>
+   </div>
+  </div>
+  <div style="background:var(--crema);color:var(--tinta);padding:28px">
+   <form id="fContacto" novalidate>
+    <div class="row">
+     <label>Nombre<input id="cNombre" name="nombre" autocomplete="name" required><span class="err"></span></label>
+     <label>Correo electrónico<input id="cMail" name="mail" type="email" autocomplete="email" required><span class="err"></span></label>
+    </div>
+    <label>Motivo<select id="cMotivo" name="motivo" required><option value="">Seleccione una opción</option><option>Consulta general</option><option>Bodega</option><option>Restaurante o vinoteca</option><option>Información sobre talleres</option><option>Propuesta de colaboración</option></select><span class="err"></span></label>
+    <label>Mensaje<textarea id="cMsj" name="mensaje" rows="4" required></textarea><span class="err"></span></label>
+    <p class="proto">Prototipo: este formulario todavía no está conectado a un servicio de envío. Los datos ingresados no salen de esta página.</p>
+    <button class="btn solid" type="submit">Enviar consulta</button>
+    <div id="cOk" hidden></div>
+   </form>
+  </div>
+ </div>
+</section>
+
+<footer><div class="wrap"><span>¿A qué sabe Maldonado? · Propuesta de Areté &amp; Co. para la Intendencia Departamental de Maldonado</span><a href="https://www.instagram.com/aquesabemaldonado/" target="_blank" rel="noopener">Instagram: @aquesabemaldonado</a><span>Datos de bodegas: INAVI y sitios de cada bodega · Prototipo 2026</span></div></footer>
+
+<button class="totop" id="toTop" aria-label="Volver al inicio" hidden>↑</button>
+
+<dialog id="dlg"></dialog>
+<dialog id="dlgForm" style="max-width:min(560px,calc(100vw - 32px))"></dialog>
+
+<script id="datos">
+/* ===== DATOS (editar acá para actualizar la web) ===== */
+/* exp: rest=restaurante, aloj=alojamiento, tienda=tienda, deg=degustación/visitas, ev=eventos */
+const BODEGAS = [
+ {id:"cerrodeltoro",big:true,mx:18.0,my:71.5,n:"Cerro del Toro",loc:"Piriápolis",mun:"Piriápolis",zona:"Oeste",tipo:"Bodega registrada en INAVI",lat:-34.84,lon:-55.25,img:"cerrodeltoro2.jpg",alt:"Viñedo de Cerro del Toro frente al mar",dir:"Camino de los Arrayanes km 3,8, Piriápolis",tel:"092 703 314",mail:"info@cerrodeltoro.uy",web:"https://cerrodeltoro.uy",
+  cepas:["Albariño","Tannat","Pinot Noir","Merlot","Cabernet Franc","Syrah","Petit Verdot","Chardonnay","Viognier"],vinos:["Albariño","Albariño Cima","Blanco Atlántico","Tannat Atlántico","Pinot Noir Atlántico","Merlot Reserva","Cabernet Franc-Merlot","Petit Verdot","Singular Rocamadre","Singular Ladera Alta","Alquimia"],exp:["rest","tienda","deg"],
+  desc:"Al pie del Cerro del Toro, en Piriápolis. Cada febrero abre su vendimia con visitas guiadas, degustación y almuerzo.",fuente:"INAVI; PuntaDelEsteInternacional (2026)"},
+ {id:"lasespinas",mx:27.4,my:73.7,mark:"logo-lasespinas.png",n:"Las Espinas · Bouza",loc:"Punta Negra",mun:"Piriápolis",zona:"Oeste",tipo:"Bodega, viñedo y restaurante",lat:-34.893,lon:-55.225,img:"lasespinas.jpg",alt:"Vista aérea de los viñedos de Las Espinas frente al mar",dir:"Ruta Interbalnearia km 104, Punta Negra",tel:"094 430 999",mail:"lasespinas@bodegabouza.com",web:"https://bodegabouza.com",
+  cepas:["Tannat","Merlot","Pinot Noir","Riesling"],vinos:["Las Espinas Tannat","Las Espinas Merlot","Las Espinas Pinot Noir"],exp:["rest","tienda"],
+  desc:"El viñedo de Bodega Bouza frente al mar, en Punta Negra. La familia Bouza, de origen gallego, trajo el Albariño a Maldonado en 2001.",fuente:"J. Lazo, comunicación personal (2026)"},
+ {id:"cava",mx:24.6,my:62.2,mark:"logo-cava.png",n:"Cava de las Ánimas",loc:"Nueva Carrara",mun:"Pan de Azúcar",zona:"Oeste",tipo:"Bodega registrada en INAVI",lat:-34.72,lon:-55.2,img:"cava.jpg",alt:"Viñedo de Cava de las Ánimas con un nido de hornero",dir:"Calle 4 s/n, Nueva Carrara",tel:"098 846 603",mail:"cavadelasanimas@gmail.com",web:"",
+  cepas:["Tannat"],vinos:[],exp:["tienda","deg"],
+  desc:"Bodega chica en Nueva Carrara, junto a la Sierra de las Ánimas.",fuente:"INAVI"},
+ {id:"altodelaballena",mx:42.8,my:68.9,n:"Alto de la Ballena",loc:"Sierra de la Ballena",mun:"Maldonado",zona:"Sierra de la Ballena",tipo:"Bodega registrada en INAVI",lat:-34.8,lon:-55.03,img:"altodelaballena2.jpg",alt:"Barrica de Alto de la Ballena en el viñedo",dir:"Ruta 12 km 16,4",tel:"094 240 365",mail:"visitas@altodelaballena.com",web:"",
+  cepas:["Tannat","Merlot","Cabernet Franc","Syrah","Viognier"],vinos:[],exp:["tienda","deg","ev"],
+  desc:"Sobre la ladera de la Sierra de la Ballena, a pocos minutos de la ciudad de Maldonado. Cada febrero organiza su fiesta de vendimia con almuerzo en el viñedo.",fuente:"INAVI; Wine Locals (2026)"},
+ {id:"vinaeden",mx:44.1,my:61.9,n:"Viña Edén",loc:"Pueblo Edén",mun:"San Carlos",zona:"Sierras",tipo:"Bodega registrada en INAVI",lat:-34.655,lon:-54.99,img:"vinaeden.jpg",alt:"Barricas de Viña Edén junto a la pared de piedra de la sierra",dir:"Ruta 12 km 26, Pueblo Edén",tel:"092 552 300",mail:"info@vinaeden.com",web:"",
+  cepas:["Tannat","Chardonnay","Merlot","Marselan","Pinot Noir"],vinos:["Tannat Reserva","Cerro Negro Gran Reserva"],exp:["rest","aloj","tienda","deg"],
+  desc:"Entre las sierras de Pueblo Edén. Su cava está construida dentro de la roca: las barricas descansan junto a las paredes de piedra de la propia sierra, como en una bodega subterránea. Tiene restaurante y alojamiento.",fuente:"INAVI"},
+ {id:"cofradia",mx:50.9,my:58.9,n:"Cofradía de la Sierra",loc:"Sierra de Carapé",mun:"San Carlos",zona:"Sierras",tipo:"Bodega registrada en INAVI",lat:-34.6,lon:-54.93,img:"logo-cofradia2.png",logo:true,alt:"Logo de Cofradía de la Sierra",dir:"Camino a Ruta del Carapé, a 6 km de Ruta 12 km 30",tel:"095 638 910",mail:"cofradiadelasierra@gmail.com",web:"",
+  cepas:["Tannat","Pinot Noir","Merlot","Petit Verdot","Albariño","Chardonnay"],vinos:[],exp:["rest","aloj","tienda","deg"],
+  desc:"Bodega serrana en el camino a Carapé. En 2025 organizó una cosecha de tintas con almuerzo y una jornada por el Día del Tannat.",fuente:"INAVI; Jornal Sierramar (2025); Intendencia de Maldonado (2025)"},
+ {id:"sacromonte",big:true,mx:50.4,my:54.5,mark:"logo-sacromonte.png",n:"Sacromonte",loc:"Sierra de Carapé",mun:"San Carlos",zona:"Sierras",tipo:"Viñedo, hotel y proyecto de vinos",lat:-34.67,lon:-54.94,img:"sacromonte.jpg",alt:"Vista aérea de Sacromonte entre las sierras",dir:"Camino La Guillermina km 7",tel:"095 910 150",mail:"reservas@sacromonte.com",web:"",
+  cepas:["Tannat","Cabernet Sauvignon","Cabernet Franc","Merlot","Syrah","Marselan"],vinos:[],exp:["rest","aloj","deg","ev"],
+  desc:"Viñedo y hotel entre las sierras de Carapé, cerca de Pueblo Edén.",fuente:"Sitio de Sacromonte"},
+ {id:"sierraoriental",mx:56.9,my:49.0,n:"Sierra Oriental",loc:"Las Cañas, Ruta 39",mun:"San Carlos",zona:"Sierras",tipo:"Bodega registrada en INAVI",lat:-34.52,lon:-54.86,img:"logo-sierraoriental2.png",logo:"dark",alt:"Logo de Sierra Oriental",dir:"Ruta 39 km 46,6",tel:"099 904 894",mail:"topwinery@gmail.com",web:"https://sierraoriental.com",
+  cepas:[],vinos:[],exp:[],
+  desc:"Sobre la Ruta 39, camino a Aiguá. Visitas: consultar con la bodega.",fuente:"INAVI"},
+ {id:"oceanica",mx:72.6,my:65.1,n:"Oceánica José Ignacio",loc:"José Ignacio",mun:"Garzón y José Ignacio",zona:"Costa este",tipo:"Bodega registrada en INAVI",lat:-34.79,lon:-54.72,img:"oce-11.jpg",gal:["oce-03.jpg","oce-01.jpg","oce-08.jpg","oce-20.jpg"],alt:"Viñedo de Oceánica José Ignacio en otoño",dir:"Ruta 9 km 157, José Ignacio",tel:"097 380 611",mail:"visitas@ojoseignacio.com",web:"https://ojoseignacio.com",
+  cepas:["Albariño","Chardonnay","Pinot Noir","Tannat","Merlot"],vinos:["José Ignacio Tannat","José Ignacio Chardonnay","José Ignacio Merlot","Ámbar"],exp:["tienda","deg"],
+  desc:"Viñedo a pocos kilómetros de la costa de José Ignacio, con visitas y degustaciones.",fuente:"INAVI"},
+ {id:"brisas",mx:80.7,my:63.3,n:"Bodega Brisas",loc:"Altos de José Ignacio",mun:"Garzón y José Ignacio",zona:"Costa este",tipo:"Bodega registrada en INAVI",lat:-34.74,lon:-54.66,img:"brisas2.jpg",alt:"Edificio de la bodega Brisas entre viñedos",dir:"Camino Ing. Sainz Martínez km 17",tel:"4224 1759",mail:"info@bodegabrisas.com",web:"",
+  cepas:["Tannat","Merlot","Pinot Noir","Chardonnay","Sauvignon Blanc","Albariño"],vinos:["Brisas del Este Tannat","Brisas del Este Cabernet Sauvignon","Brisas del Este Sauvignon Blanc","Brisas del Este Blend Selection"],exp:[],
+  desc:"Bodega en los altos de José Ignacio, tierra adentro desde la costa. Visitas: consultar con la bodega.",fuente:"INAVI"},
+ {id:"garzon",big:true,mx:84.8,my:52.6,n:"Bodega Garzón",loc:"Garzón",mun:"Garzón y José Ignacio",zona:"Costa este",tipo:"Bodega registrada en INAVI",lat:-34.588,lon:-54.575,img:"garzon2.jpg",alt:"Edificio de Bodega Garzón con su nombre en el muro",dir:"Ruta 9 km 175",tel:"4224 1759",mail:"info@bodegagarzon.com",web:"https://bodegagarzon.com/es/",
+  cepas:["Albariño","Tannat","Sauvignon Blanc","Viognier","Pinot Noir","Cabernet Franc","Marselan","Petit Verdot"],vinos:["Albariño Single Vineyard","Tannat Reserva","Petit Clos","Estate","Reserva","Field Blend","Balasto (corte)"],exp:["rest","tienda","deg","ev"],
+  desc:"La bodega más conocida del departamento. En 2025 quedó cuarta en el ranking World's 50 Best Vineyards y fue la primera bodega fuera de Norteamérica con certificación LEED Silver. Su restaurante tiene el asesoramiento de Francis Mallmann.",fuente:"La Nación (11/1/2026); Bodega Garzón (2026)"},
+ {id:"vinosdelmar",mx:88.5,my:55.2,n:"Cía. Uruguaya de Vinos del Mar",loc:"Pueblo Garzón",mun:"Garzón y José Ignacio",zona:"Costa este",tipo:"Bodega registrada en INAVI",lat:-34.612,lon:-54.54,img:"vinosdelmar2.jpg",alt:"Vista aérea de la bodega Vinos del Mar en Pueblo Garzón",dir:"Calle José Ignacio esq. Estadio, Pueblo Garzón",tel:"099 976 773",mail:"administracion.uruguay@cvdi.wine",web:"",
+  cepas:["Albariño","Sauvignon Blanc","Pinot Noir","Tannat"],vinos:[],exp:["rest","tienda","deg"],
+  desc:"En el propio pueblo de Garzón. En verano abre de martes a domingo con visitas, degustaciones y gastronomía, según su agenda de 2023 y 2026.",fuente:"INAVI; Intendencia de Maldonado"}
+];
+const EXP = {rest:"Restaurante",aloj:"Alojamiento",tienda:"Tienda",deg:"Visitas y degustación",ev:"Eventos"};
+const CEPAS = [
+ {n:"Albariño",img:"cepa-blanca.jpg",alt:"Racimo de uva blanca recién cortado, sostenido en alto con una tijera de podar",tipo:"blanca",col:["#E6E2A2","#B8B25A"],gen:"Uva blanca de origen gallego. En Maldonado es la cepa que más identifica a la región: Bouza la plantó en 2001 y hoy la trabajan varias bodegas de la costa y las sierras.",
+  aroma:"Fresca y con acidez marcada. Aromas cítricos y de fruta blanca, con un perfil que muchos describen como salino.",mar:"Pescados y mariscos, ceviche, sushi, cocina de mar."},
+ {n:"Tannat",img:"cepa-tinta.jpg",alt:"Racimos de uva tinta muy oscura en la planta",tipo:"tinta",col:["#5C5478","#1B1226"],gen:"La cepa emblema de Uruguay, llegada en 1874. En Maldonado sigue siendo la tinta principal.",
+  aroma:"Tinto intenso, de taninos firmes. Frutos negros y, con crianza, notas especiadas.",mar:"Asado, cordero, carnes a la parrilla y quesos estacionados."},
+ {n:"Pinot Noir",img:"cepa-pinot.jpg",alt:"Racimos de uva Pinot Noir entre hojas de vid",tipo:"tinta",col:["#8E6A9E","#3A1C44"],gen:"Tinta de piel fina que prefiere climas frescos. INAVI la destaca en la Región Oceánica.",
+  aroma:"Delicada y elegante. Frutos rojos como frutilla y cereza.",mar:"Hongos, aves, pescados grasos y platos de cerdo."},
+ {n:"Merlot",img:"cepa-balde.jpg",alt:"Balde lleno de uvas tintas recién cosechadas",tipo:"tinta",col:["#6E6A98","#22183A"],gen:"Tinta muy plantada en el departamento, sola o en cortes.",
+  aroma:"Suave y redonda, de taninos amables. Ciruela y frutos rojos maduros.",mar:"Pastas con salsa, carnes blancas, quesos semiduros."},
+ {n:"Cabernet Franc",img:"cepa-cabfranc.jpg",alt:"Racimo de uva Cabernet Franc colgando del sarmiento",tipo:"tinta",col:["#6A6E96","#1E1832"],gen:"Tinta presente en bodegas de la costa y las sierras.",
+  aroma:"Fresca y aromática. Frutos rojos, notas herbales y un toque especiado.",mar:"Carnes asadas, verduras grilladas, embutidos."},
+ {n:"Viognier",img:"cepa-rosada.jpg",alt:"Racimos de uva blanca y dorada colgando de un sarmiento",tipo:"blanca",col:["#F2DB92","#C49A3E"],gen:"Blanca aromática que aparece en algunas bodegas como apuesta nueva.",
+  aroma:"De cuerpo suave. Durazno, damasco y flores blancas.",mar:"Cocina especiada, pollo, quesos de pasta blanda."},
+ {n:"Sauvignon Blanc",img:"cepa-blanca.jpg",alt:"Racimo de uva blanca sostenido en alto",tipo:"blanca",col:["#DDE2A0","#9EA650"],gen:"Blanca que INAVI destaca en la Región Oceánica.",
+  aroma:"Fresca y herbal, con cítricos.",mar:"Ensaladas, quesos de cabra, mariscos."},
+ {n:"Chardonnay",img:"cepa-chardonnay.jpg",alt:"Racimo de uva Chardonnay dorada entre hojas de vid",tipo:"blanca",col:["#EEDC9A","#B9993E"],gen:"Blanca muy difundida en el mundo, presente en varias bodegas del departamento.",
+  aroma:"Fruta blanca y, con barrica, notas de vainilla y manteca.",mar:"Pescados en salsa, pastas con crema, aves."},
+ {n:"Syrah",img:"cepa-syrah.jpg",alt:"Manos cortando racimos de uva Syrah en la vendimia",tipo:"tinta",col:["#5E5280","#1A1028"],gen:"Tinta que aparece en el departamento junto a las apuestas nuevas.",
+  aroma:"Frutos negros y notas de pimienta.",mar:"Carnes a la parrilla, guisos, cordero."}
+];
+const TALLERES_RES = [
+ {n:"El territorio en una copa",img:"copa.jpg",alt:"Copa de vino tinto frente al mar",desc:"Un encuentro para descubrir cómo el mar, las sierras, el clima y los suelos de Maldonado se relacionan con las características de sus vinos.",fecha:"Fecha a confirmar",lugar:"A confirmar",cupos:"A confirmar"},
+ {n:"De la vid a la copa",img:"vinosdelmar.jpg",alt:"Cosechador en el viñedo",desc:"Una experiencia para conocer la cosecha, la vendimia y el proceso de elaboración del vino.",fecha:"Fecha a confirmar (temporada de vendimia)",lugar:"A confirmar",cupos:"A confirmar"},
+ {n:"Maldonado se marida",img:"altodelaballena.jpg",alt:"Barricas en una bodega",desc:"Una propuesta para explorar combinaciones entre vinos de Maldonado y productos gastronómicos locales.",fecha:"Fecha a confirmar",lugar:"A confirmar",cupos:"A confirmar"}
+];
+const IG = "https://www.instagram.com/aquesabemaldonado/";
+const TALLERES_GAS = [
+ {num:"01",n:"Maldonado en la carta",img:"taller1.jpg",desc:"Las bodegas de Maldonado presentan sus vinos, precios y condiciones de venta, y después conversan mano a mano con cada restaurante. Ronda de negocios de dos horas.",para:"Propietarios y encargados de compras",fecha:"Lunes 23 de noviembre",hora:"15:00 a 17:00"},
+ {num:"02",n:"Conocer para recomendar",img:"taller2.jpg",desc:"Un sommelier presenta las zonas y las cepas del departamento con lenguaje simple, y practicamos cómo recomendar según lo que pide cada comensal. 90 minutos.",para:"Personal de salón y sommeliers",fecha:"Lunes 30 de noviembre",hora:"15:30 a 17:00"},
+ {num:"03",n:"El mar en el plato y en la copa",img:"taller3.jpg",desc:"Un chef y un enólogo preparan en vivo maridajes de vinos de Maldonado con pesca artesanal y Cordero Esteño: Albariño, Sauvignon Blanc y Pinot Noir con pescados, Tannat con cordero.",para:"Chefs y responsables de cocina",fecha:"Lunes 7 de diciembre",hora:"15:00 a 17:00",extra:"Prioridad para restaurantes del Pacto Oceánico del Este"}
+];
+const EVENTOS = [
+ {f:"2027-02-02",fin:"28 feb",n:"Visitas y experiencias de verano",s:"Vinos del Mar · visitas",low:true,days:[2,3,4,5,6,7,9,10,11,12,13,14,16,17,18,19,20,21,23,24,25,26,27,28].map(d=>"2027-02-"+String(d).padStart(2,"0")),b:"Cía. Uruguaya de Vinos del Mar · Pueblo Garzón",q:"Visitas, degustaciones y gastronomía, de martes a domingo.",src:"Agenda INAVI 2026; Intendencia de Maldonado 2023"},
+ {f:"2027-02-09",fin:"14 feb",n:"Vendimia en Cerro del Toro",s:"Vendimia Cerro del Toro",days:["2027-02-09","2027-02-10","2027-02-11","2027-02-12","2027-02-13","2027-02-14"],b:"Cerro del Toro · Piriápolis",q:"Visitas guiadas, degustación y almuerzo.",src:"PuntaDelEsteInternacional 2026"},
+ {f:"2027-02-14",n:"San Valentín entre viñedos",s:"San Valentín · Pueblo Edén",b:"Viña Edén y Sacromonte · Pueblo Edén",q:"Propuesta gastronómica al mediodía y atardecer en la bodega.",src:"PuntaDelEsteInternacional 2026"},
+ {f:"2027-02-18",n:"Tour Vendimia",s:"Tour Vendimia Garzón",days:["2027-02-18","2027-02-19","2027-02-25","2027-02-26"],b:"Bodega Garzón · Garzón",q:"Recepción en el viñedo, cosecha, recorrido por la bodega y almuerzo opcional. Jueves 18, viernes 19, jueves 25 y viernes 26.",src:"INAVI, Tour Vendimia 2025",url:"https://www.inavi.com.uy/evento/bodega-garzon-tour-vendimia-2025/"},
+ {f:"2027-02-20",n:"Fiesta de vendimia",s:"Vendimia Alto de la Ballena",b:"Alto de la Ballena · Sierra de la Ballena",q:"Visita, taller de paella y almuerzo maridado, de 11:00 a 15:30.",src:"Wine Locals 2026",url:"https://www.wine-locals.com/passeios/vendimia-2026-na-bodega-alto-de-la-ballena"},
+ {f:"2027-03-06",n:"Mar y Sierra",s:"Mar y Sierra · Cofradía",b:"Cofradía de la Sierra · Sierra de Carapé",q:"Cosecha de tintas y almuerzo, con traslado desde Punta del Este a pedido.",src:"Jornal Sierramar 2025",url:"https://jornalsierramar.blogspot.com/2025/02/vendimia-2025-uruguay.html"},
+ {f:"2027-03-07",n:"Festival de Vendimia",s:"Festival Alto de la Ballena",b:"Alto de la Ballena · Sierra de la Ballena",q:"Cocina en vivo en el viñedo con chef invitado, desde las 11:00.",src:"Jornal Sierramar 2025"},
+ {f:"2027-03-13",n:"Fiesta de la Vendimia",s:"Fiesta de la Vendimia Garzón",b:"Bodega Garzón · Garzón",q:"Cosecha, almuerzo de Francis Mallmann y música en vivo.",src:"Wine Locals",url:"https://www.wine-locals.com/passeios/fiesta-de-la-vendimia-bodega-garzon-con-francis-mallmann-y-sus-siete-fuegos"},
+ {f:"2027-03-21",n:"Gala de Vendimia",s:"Gala de Vendimia Garzón",b:"Bodega Garzón · Garzón",q:"Cena, maridaje y música, de 18:00 a 23:00. Solo mayores de 18.",src:"Bodegas de Uruguay 2025",url:"https://bodegasdeuruguay.com/bodega-garzon-primera-gala-de-vendimia-2025/"},
+ {f:"2027-03-22",fin:"28 mar",n:"Semana de Turismo entre bodegas",s:"Turismo entre bodegas",days:["2027-03-22","2027-03-23","2027-03-24","2027-03-25","2027-03-26","2027-03-27","2027-03-28"],b:"Varias bodegas del departamento",q:"Recorridos, catas y almuerzos en bodegas y almazaras.",src:"Intendencia de Maldonado 2025",url:"https://www.maldonado.gub.uy/noticias/semana-turismo-maldonado-una-ruta-sabores-entre-bodegas-almazaras"}
+];
+const NOTICIAS = [
+ {cat:"Reconocimientos",f:"15/6/2026",t:"Garzón llevó sus vinos a dos ferias de Nueva York",r:"La bodega presentó su Balasto 2022, el Albariño Single Vineyard y el Tannat Reserva en Descorchados New York y en Sip of South America, organizada por Wine Enthusiast.",medio:"Bodega Garzón",url:"https://bodegagarzon.com/en/news/topics/bodega-garzon-llevo-sus-vinos-a-dos-de-los-eventos-mas-importantes-de-nueva-york/",img:"garzon.jpg"},
+ {cat:"Región",f:"11/1/2026",t:"Una guía de la ruta del vino uruguaya, de Carmelo a Garzón",r:"La nota destaca a Garzón entre los 50 mejores viñedos del mundo en 2025 y su certificación LEED Silver, y presenta a Maldonado como destino del enoturismo.",medio:"La Nación · Sebastián A. Ríos",url:"https://www.lanacion.com.ar/sabado/de-carmelo-a-garzon-una-guia-para-conocer-la-ruta-del-vino-de-uruguay-nid11012026/",img:"oce-03.jpg"},
+ {cat:"Vendimia",f:"2025",t:"Garzón sumó una gala de vendimia",r:"En marzo de 2025 la bodega hizo su primera Gala de Vendimia, una cena con maridaje y música que se agregó a su fiesta de la cosecha.",medio:"Bodegas de Uruguay",url:"https://bodegasdeuruguay.com/bodega-garzon-primera-gala-de-vendimia-2025/",img:"vinosdelmar.jpg"},
+ {cat:"Actividades",f:"13/4/2025",t:"Semana de Turismo: una ruta de sabores entre bodegas y almazaras",r:"La Intendencia reunió en una agenda las propuestas de bodegas y almazaras del departamento para la Semana de Turismo.",medio:"Intendencia de Maldonado",url:"https://www.maldonado.gub.uy/noticias/semana-turismo-maldonado-una-ruta-sabores-entre-bodegas-almazaras",img:"cerrodeltoro.jpg"},
+ {cat:"Vendimia",f:"2025",t:"Tour Vendimia en Bodega Garzón",r:"Jornadas para cosechar en el viñedo, recorrer la bodega y almorzar con maridaje, con cupos de 35 personas por día.",medio:"INAVI",url:"https://www.inavi.com.uy/evento/bodega-garzon-tour-vendimia-2025/",img:"sacromonte.jpg"},
+ {cat:"Región",f:"Julio 2026",t:"Vinos de Mar & Sierra reunió a catorce bodegas",r:"El salón juntó en el Cantegril a catorce bodegas de Maldonado y agotó sus 270 entradas días antes, con apoyo de la Intendencia en la difusión.",medio:"Intendencia de Maldonado",url:"",img:"altodelaballena.jpg",pend:true}
+];
+const TERRITORIO = [
+ {k:"El mar",s:"Región Oceánica",img:"ji-aerea.jpg",alt:"La costa de José Ignacio vista desde el faro",t:"El océano marca el carácter",p:"INAVI ubica a Maldonado, junto con Rocha, en la Región Oceánica, la zona de influencia atlántica del país. El aire del mar mantiene las temperaturas más bajas que en el interior, y la brisa ventila los viñedos y reduce los hongos.",src:"INAVI; J. Lazo (2026)"},
+ {k:"Las sierras",s:"De las Ánimas a Carapé",img:"sierra-animas.jpg",alt:"Vista desde la Sierra de las Ánimas",t:"Viñedos que suben a la sierra",p:"Hacia adentro, los viñedos suben por la Ruta 12 hasta la Sierra de Carapé y por la Ruta 39 hacia Aiguá. La mayor parte del sector está en las sierras y en el oeste, lejos de la imagen habitual del departamento.",src:"INAVI (2026); Patissier y Bassini"},
+ {k:"Los suelos",s:"Roca, cuarzo y valles",img:"vinaeden.jpg",alt:"Barricas junto a la pared de piedra de la sierra",t:"La piedra debajo de la uva",p:"En las sierras hay suelos de roca con cuarzo, y en los valles, suelos aluviales. Por eso cada zona da vinos distintos.",src:"J. Lazo (2026)"},
+ {k:"El clima",s:"Días cálidos, noches frescas",img:"ji-atardecer.jpg",alt:"Atardecer sobre los pastizales de José Ignacio",t:"Una maduración más lenta",p:"La diferencia entre el día y la noche hace que la uva madure más despacio y llegue con más frescura. En la copa se nota en una acidez natural más marcada.",src:"J. Lazo (2026)"},
+ {k:"Los viñedos",s:"Una región nueva",img:"oce-01.jpg",alt:"Fila de viñedo en otoño en José Ignacio",t:"Veinticinco años de historia",p:"Entre 2015 y 2024 Uruguay perdió 1.137 hectáreas de viñedo, mientras Maldonado siguió creciendo hasta ser el tercer departamento en superficie, detrás de Canelones y Montevideo.",src:"Bodegas del Uruguay (2026)"},
+ {k:"Las personas",s:"Un año de trabajo",img:"vinosdelmar.jpg",alt:"Cosechador con una caja de uvas",t:"Detrás de cada copa",p:"Hay un año de trabajo en el campo: la poda, el cuidado de la planta y el seguimiento de la maduración, y una vendimia que va de principios de enero a mediados de marzo. En Maldonado todo se hace a escala chica y cada bodega cultiva su propia uva.",src:"J. Lazo (2026)"}
+];
+</script>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s), el=(t,a={},h='')=>{const e=document.createElement(t);for(const k in a)e.setAttribute(k,a[k]);if(h)e.innerHTML=h;return e};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const lc=b=>b.logo==='dark'?'class="logo"':(b.logo?'class="logo light"':'');
+const gmaps=b=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(b.n+', '+b.dir+', Maldonado, Uruguay');
+const toast=m=>{const t=el('div',{class:'toast',role:'status'},esc(m));document.body.appendChild(t);setTimeout(()=>t.remove(),2600)};
+$('#mCount').textContent=BODEGAS.length+' bodegas y viñedos';
+
+/* menú */
+const mb=$('#menuBtn'),mu=$('#menu');
+mb.onclick=()=>{const o=mu.classList.toggle('open');mb.setAttribute('aria-expanded',o)};
+mu.querySelectorAll('a').forEach(a=>a.onclick=()=>{mu.classList.remove('open');mb.setAttribute('aria-expanded','false')});
+
+/* hero parallax */
+const hb=$('#heroBg');const hv=$('#heroVid');if(matchMedia('(prefers-reduced-motion: reduce)').matches){hv.removeAttribute('autoplay');hv.pause()}
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches && matchMedia('(pointer:fine)').matches){
+ $('#inicio').addEventListener('mousemove',e=>{const r=e.currentTarget.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;hb.style.transform=hv.style.transform=`scale(1.06) translate(${x*-14}px,${y*-10}px)`});
+}
+
+/* ===== MAPA ===== */
+const mk={};const MI=$('#mapImg');
+BODEGAS.forEach((b,i)=>{const p=el('button',{class:'pin',type:'button','aria-label':`${i+1}. ${b.n}`,style:`left:${b.mx}%;top:${b.my}%`},`<span>${i+1}. ${esc(b.n)}</span>`);p.onclick=()=>pick(b.id);MI.appendChild(p);mk[b.id]=p});
+const muns=[...new Set(BODEGAS.map(b=>b.mun))].sort(), cepasAll=[...new Set(BODEGAS.flatMap(b=>b.cepas))].sort();
+muns.forEach(m=>$('#fMun').appendChild(el('option',{value:m},esc(m))));
+cepasAll.forEach(m=>$('#fCepa').appendChild(el('option',{value:m},esc(m))));
+Object.entries(EXP).forEach(([k,v])=>$('#fExp').appendChild(el('option',{value:k},v)));
+function ficha(b){
+ const ph=`<img ${lc(b)} src="img/${b.img}" alt="${esc(b.alt)}">`;
+ const ce=b.cepas.length?`<div class="cepas">${b.cepas.map(c=>`<span>${esc(c)}</span>`).join('')}</div>`:'';
+ const ex=b.exp.length?b.exp.map(x=>EXP[x]).join(' · '):'Consultar con la bodega';
+ return `<div class="ph">${ph}</div><div class="in"><span class="loc">${esc(b.loc)} · ${esc(b.mun)}</span><h3>${esc(b.n)}</h3>${b.mark?`<img class="mark" src="img/${b.mark}" alt="Logo de ${esc(b.n)}">`:''}<p>${esc(b.desc)}</p>
+ <dl class="kv">${b.cepas.length?`<div><dt>Cepas</dt><dd>${ce}</dd></div>`:''}
+ ${b.vinos.length?`<div><dt>Vinos</dt><dd>${esc(b.vinos.join(' · '))}</dd></div>`:''}
+ <div><dt>Experiencias</dt><dd>${esc(ex)}</dd></div><div><dt>Dirección</dt><dd>${esc(b.dir)}</dd></div>
+ <div><dt>Contacto</dt><dd>${esc(b.tel)}<br>${esc(b.mail)}</dd></div></dl>
+ <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn solid" href="${gmaps(b)}" target="_blank" rel="noopener">Cómo llegar</a>${b.web?`<a class="btn" href="${b.web}" target="_blank" rel="noopener">Sitio oficial</a>`:''}</div></div>`;
+}
+let cur=null;
+function pick(id){cur=id;const b=BODEGAS.find(x=>x.id===id);$('#ficha').innerHTML=ficha(b);Object.entries(mk).forEach(([k,g])=>g.classList.toggle('on',k===id));
+ document.querySelectorAll('#mapList button').forEach(x=>x.classList.toggle('on',x.dataset.id===id))}
+function filt(){const m=$('#fMun').value,c=$('#fCepa').value,x=$('#fExp').value;const L=$('#mapList');L.innerHTML='';let first=null;
+ BODEGAS.forEach((b,i)=>{const ok=(!m||b.mun===m)&&(!c||b.cepas.includes(c))&&(!x||b.exp.includes(x));mk[b.id].classList.toggle('off',!ok);
+  if(ok){first=first||b.id;const bt=el('button',{'data-id':b.id},`<span>${i+1}. ${esc(b.n)}</span><small>${esc(b.loc)}</small>`);bt.onclick=()=>pick(b.id);L.appendChild(bt)}});
+ if(!first){L.innerHTML='<p style="padding:14px;font-size:14px">Ninguna bodega coincide con esos filtros.</p>'}
+ if(first&&!(cur&&!mk[cur].classList.contains('off')))pick(first);else if(cur)pick(cur)}
+['#fMun','#fCepa','#fExp'].forEach(q=>$(q).onchange=filt);
+filt();pick('cerrodeltoro');
+
+/* ===== DIRECTORIO ===== */
+const dlg=$('#dlg');
+BODEGAS.forEach(b=>{const c=el('button',{class:'bod'+(b.big?' big':''),type:'button'});
+ c.innerHTML=`<div class="im"><img ${lc(b)} src="img/${b.img}" alt="${esc(b.alt)}" loading="lazy"><span class="zona">${esc(b.zona)}</span></div>
+ <div class="tx"><span class="loc" style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--vino)">${esc(b.loc)}</span><h3>${esc(b.n)}</h3><p style="font-size:15px">${esc(b.desc)}</p><span class="tipo">${esc(b.tipo)}</span><span class="more">Ver perfil completo →</span></div>`;
+ c.onclick=()=>{dlg.innerHTML=`<button class="x" aria-label="Cerrar">×</button><div class="mod"><div class="ph"><img ${lc(b)} src="img/${b.img}" alt="${esc(b.alt)}"></div>
+ <div class="in"><span class="loc" style="font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--vino)">${esc(b.zona)} · ${esc(b.loc)}</span><h3>${esc(b.n)}</h3>${b.mark?`<img class="mark" src="img/${b.mark}" alt="Logo de ${esc(b.n)}">`:''}<p class="desc">${esc(b.desc)}</p>${b.gal?`<div class="gal">${b.gal.map(g=>`<img src="img/${g}" alt="Finca de ${esc(b.n)}" loading="lazy">`).join('')}</div>`:''}
+ <dl class="kv"><div><dt>Tipo</dt><dd>${esc(b.tipo)}</dd></div>${b.cepas.length?`<div><dt>Cepas</dt><dd><div class="cepas">${b.cepas.map(x=>`<span>${esc(x)}</span>`).join('')}</div></dd></div>`:''}
+ ${b.vinos.length?`<div><dt>Vinos</dt><dd>${esc(b.vinos.join(' · '))}</dd></div>`:''}
+ 
+ <div><dt>Experiencias</dt><dd>${b.exp.length?b.exp.map(x=>EXP[x]).join(' · '):'Consultar con la bodega'}</dd></div><div><dt>Dirección</dt><dd>${esc(b.dir)}</dd></div><div><dt>Contacto</dt><dd>${esc(b.tel)} · ${esc(b.mail)}</dd></div><div><dt>Fuente</dt><dd style="font-size:13px">${esc(b.fuente)}</dd></div></dl>
+ <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn solid" href="${gmaps(b)}" target="_blank" rel="noopener">Cómo llegar</a>${b.web?`<a class="btn" href="${b.web}" target="_blank" rel="noopener">Sitio oficial</a>`:''}<a class="btn" href="#mapa" data-close>Ver en el mapa</a><a class="btn" href="${IG}" target="_blank" rel="noopener">Más en Instagram</a></div></div></div>`;
+ dlg.querySelector('.x').onclick=()=>dlg.close();dlg.querySelector('[data-close]').onclick=()=>{dlg.close();pick(b.id)};dlg.showModal()};
+ $('#dir').appendChild(c)});
+dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close()});
+
+/* ===== CEPAS ===== */
+function drawGrape(cv,col){const x=cv.getContext('2d');const w=cv.width=440,h=cv.height=572;x.clearRect(0,0,w,h);
+ let seed=col[0].charCodeAt(1)*7+col[1].charCodeAt(3);const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
+ x.strokeStyle='#7A5A35';x.lineWidth=7;x.beginPath();x.moveTo(220,30);x.quadraticCurveTo(230,70,220,110);x.stroke();
+ x.fillStyle='#6E8A3E';x.beginPath();x.moveTo(230,70);x.bezierCurveTo(300,20,380,40,370,110);x.bezierCurveTo(330,90,300,100,232,86);x.fill();
+ const rows=10,pts=[];for(let i=0;i<rows;i++){const t=i/(rows-1);const wd=230*(1-t)**.8+30;const n=Math.max(1,Math.round(wd/44));for(let j=0;j<n;j++)pts.push([220-wd/2+(j+.5)*wd/n+(rnd()-.5)*12,120+i*40+(rnd()-.5)*10,22+rnd()*4])}
+ pts.sort((a,b)=>a[1]-b[1]).forEach(([px,py,r])=>{const g=x.createRadialGradient(px-r*.35,py-r*.4,r*.1,px,py,r);g.addColorStop(0,'rgba(255,255,255,.75)');g.addColorStop(.18,col[0]);g.addColorStop(1,col[1]);
+  x.fillStyle='rgba(0,0,0,.25)';x.beginPath();x.arc(px+3,py+4,r,0,7);x.fill();x.fillStyle=g;x.beginPath();x.arc(px,py,r,0,7);x.fill()})}
+let cf='todas';
+const fl=$('#cepaFlt');[['todas','Todas'],['blanca','Blancas'],['tinta','Tintas']].forEach(([k,v])=>{const b=el('button',{class:'chip','aria-pressed':k===cf},v);b.onclick=()=>{cf=k;fl.querySelectorAll('.chip').forEach(z=>z.setAttribute('aria-pressed',z===b));renderCepas()};fl.appendChild(b)});
+function bodegasDe(c){return BODEGAS.filter(b=>b.cepas.includes(c))}
+function showCepa(c){const bs=bodegasDe(c.n);const vin=BODEGAS.flatMap(b=>b.vinos.filter(v=>v.toLowerCase().includes(c.n.toLowerCase())).map(v=>v+' ('+b.n+')'));
+ $('#cepaCard').innerHTML=`<div class="cepa-card"><div class="cimg"><img src="img/${c.img}" alt="${esc(c.alt)}"><small>Foto ilustrativa</small></div><div class="blk">
+ <div><span class="eyebrow" style="color:#E7C9A0">Uva ${c.tipo}</span><h3>${esc(c.n)}</h3></div><p style="font-family:var(--display);font-size:19px;line-height:1.5">${esc(c.gen)}</p>
+ <div class="two"><div><p class="t">Aromas y sabor</p><p>${esc(c.aroma)}</p></div><div><p class="t">Para acompañar</p><p>${esc(c.mar)}</p></div></div>
+ <div><p class="t">Bodegas de Maldonado que la trabajan (${bs.length})</p><div class="cepas">${bs.map(b=>`<span>${esc(b.n)}</span>`).join('')||'<span>Sin datos confirmados</span>'}</div></div>
+ ${vin.length?`<div><p class="t">Vinos</p><p>${esc(vin.join(' · '))}</p></div>`:''}
+ <p style="font-size:12px;opacity:.65">Descripciones orientativas, a validar con asesoramiento enológico. Bodegas según la información que publica cada una.</p></div></div>`;
+ document.querySelectorAll('#cepaList > button').forEach(b=>b.classList.toggle('on',b.dataset.n===c.n))}
+function renderCepas(){document.querySelectorAll('#cepaList > button').forEach(b=>b.remove());const L=$('#cepaList');let first=null;
+ CEPAS.filter(c=>cf==='todas'||c.tipo===cf).forEach(c=>{first=first||c;const b=el('button',{'data-n':c.n},`<span class="dot" style="background:${c.col[1]}"></span>${esc(c.n)}<small>${bodegasDe(c.n).length} bodegas</small>`);b.onclick=()=>showCepa(c);L.appendChild(b)});showCepa(first)}
+renderCepas();
+
+/* ===== TALLERES ===== */
+const fd=$('#dlgForm');
+function openForm(nombre){fd.innerHTML=`<button class="x" aria-label="Cerrar">×</button><div style="padding:32px;display:grid;gap:16px">
+ <span class="eyebrow">Inscripción</span><h3 style="font-size:32px">${esc(nombre)}</h3>
+ <form id="fIns" novalidate><label>Nombre y apellido<input id="iNom" required autocomplete="name"><span class="err"></span></label>
+ <label>Correo electrónico<input id="iMail" type="email" required autocomplete="email"><span class="err"></span></label>
+ <div class="row"><label>Localidad<input id="iLoc" autocomplete="address-level2"><span class="err"></span></label>
+ <label>Taller<select id="iTal">${[...TALLERES_RES,...TALLERES_GAS].map(t=>`<option ${t.n===nombre?'selected':''}>${esc(t.n)}</option>`).join('')}</select><span class="err"></span></label></div>
+ <label style="display:flex;gap:10px;align-items:flex-start;text-transform:none;letter-spacing:0;font-weight:500;font-size:14px;color:var(--tinta)"><input id="iMay" type="checkbox" style="width:auto;margin-top:3px" required> Declaro ser mayor de 18 años.</label><span class="err" id="eMay"></span>
+ <p class="proto">Prototipo: la inscripción todavía no se envía a ningún lado. En la web publicada se conecta a un servicio de registro.</p>
+ <button class="btn solid" type="submit">Enviar inscripción</button><div id="iOk" hidden></div></form></div>`;
+ fd.querySelector('.x').onclick=()=>fd.close();
+ const f=$('#fIns');f.onsubmit=e=>{e.preventDefault();let ok=true;
+  const chk=(id,cond,msg)=>{const i=$(id);const er=i.parentElement.querySelector('.err');i.setAttribute('aria-invalid',!cond);if(er)er.textContent=cond?'':msg;if(!cond)ok=false};
+  chk('#iNom',$('#iNom').value.trim().length>1,'Ingrese su nombre.');chk('#iMail',/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('#iMail').value),'Verifique el correo electrónico (por ejemplo, nombre@correo.com).');
+  const may=$('#iMay').checked;$('#eMay').textContent=may?'':'La actividad está dirigida a mayores de 18 años.';if(!may)ok=false;
+  if(ok){const o=$('#iOk');o.hidden=false;o.innerHTML=`<div class="okbox"><b>Inscripción registrada</b><span>Gracias, ${esc($('#iNom').value)}. Le confirmaremos su lugar en «${esc($('#iTal').value)}» por correo electrónico. (Prototipo: la inscripción no se envía).</span></div>`}};
+ fd.showModal()}
+fd.addEventListener('click',e=>{if(e.target===fd)fd.close()});
+TALLERES_RES.forEach(t=>{const c=el('article',{class:'tall'});c.innerHTML=`<div class="top"><img src="img/${t.img}" alt="${esc(t.alt)}" loading="lazy"><span style="font-size:34px">${esc(t.n)}</span></div>
+ <div class="bd"><span class="tag conf" style="justify-self:start">Próximamente</span><p>${esc(t.desc)}</p><div class="info"><span><b>Fecha y lugar:</b> se anuncian en @aquesabemaldonado</span><span><b>Cupos:</b> limitados · <b>Costo:</b> consultar</span></div></div>
+ <div class="ft"><button class="btn solid" type="button">Inscripción</button><a class="btn" href="${IG}" target="_blank" rel="noopener">Instagram</a></div>`;c.querySelector('button').onclick=()=>openForm(t.n);$('#tallRes').appendChild(c)});
+TALLERES_GAS.forEach(t=>{const c=el('article',{class:'tall gas'});c.innerHTML=`<a class="post" href="${IG}" target="_blank" rel="noopener" aria-label="Ver la publicación de ${esc(t.n)} en Instagram"><img src="img/${t.img}" alt="Publicación de Instagram del taller ${t.num}, ${esc(t.n)}" loading="lazy"></a>
+ <div class="bd"><span class="eyebrow">Taller ${t.num}</span><h3>${esc(t.n)}</h3><p>${esc(t.desc)}</p>
+ <dl class="kv"><div><dt>Fecha</dt><dd>${esc(t.fecha)}</dd></div><div><dt>Horario</dt><dd>${esc(t.hora)}</dd></div><div><dt>Lugar</dt><dd>Corporación Gastronómica de Punta del Este</dd></div><div><dt>Para</dt><dd>${esc(t.para)}</dd></div><div><dt>Cupos</dt><dd>20 establecimientos</dd></div><div><dt>Costo</dt><dd>Consultar</dd></div></dl>
+ ${t.extra?`<p style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--vino)">${esc(t.extra)}</p>`:''}</div>
+ <div class="ft"><button class="btn solid" type="button">Inscripción</button><a class="btn" href="${IG}" target="_blank" rel="noopener">Ver en Instagram</a></div>`;c.querySelector('button').onclick=()=>openForm(t.n);$('#tallGas').appendChild(c)});
+
+/* ===== VENDIMIA ===== */
+const DAYMAP={};EVENTOS.forEach((e,i)=>(e.days||[e.f]).forEach(d=>(DAYMAP[d]=DAYMAP[d]||[]).push(i)));
+[[2027,1,'Febrero'],[2027,2,'Marzo']].forEach(([y,mo,nm])=>{const box=el('div',{class:'mes'});box.innerHTML=`<h3>${nm} 2027</h3>`;const g=el('div',{class:'grid7'});
+ ['LUN','MAR','MIÉ','JUE','VIE','SÁB','DOM'].forEach(d=>g.appendChild(el('span',{class:'h'},d)));const first=(new Date(y,mo,1).getDay()+6)%7;for(let i=0;i<first;i++)g.appendChild(el('div',{class:'cell empty'}));
+ const n=new Date(y,mo+1,0).getDate();for(let d=1;d<=n;d++){const k=`${y}-${String(mo+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;const evs=DAYMAP[k]||[];
+  const c=el('div',{class:'cell'+(evs.length?' has':'')},`<span class="dn">${d}</span>`);
+  evs.sort((a,b)=>(EVENTOS[a].low?1:0)-(EVENTOS[b].low?1:0)).forEach(i=>{const e=EVENTOS[i];c.appendChild(el('a',{class:'evc'+(e.low?' low':''),href:IG,target:'_blank',rel:'noopener',title:`${d} de ${nm}: ${e.n}, ${e.b}`},esc(e.s)))});g.appendChild(c)}
+ box.appendChild(g);$('#cal').appendChild(box)});
+const fmt=f=>{const d=new Date(f+'T12:00');return d.toLocaleDateString('es-UY',{weekday:'short',day:'numeric',month:'short'})};
+EVENTOS.forEach((e,i)=>{const r=el('div',{class:'ev',id:'ev'+i});r.innerHTML=`<div class="d">${fmt(e.f)}${e.fin?' al '+e.fin:''}<small>Fecha estimada</small></div>
+ <div><h4>${esc(e.n)}</h4><p>${esc(e.b)}. ${esc(e.q)}</p><p class="src">Referencia: ${esc(e.src)}</p></div>
+ <div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn" href="${IG}" target="_blank" rel="noopener">Ver la experiencia</a>${e.url?`<a class="btn" href="${e.url}" target="_blank" rel="noopener">Más información</a>`:''}</div>`;$('#evList').appendChild(r)});
+
+/* ===== HISTORIAS ===== */
+[['Elegir una cepa',3],['Cuidar la planta',6],['La poda',2],['Una decisión en la bodega',5],['La historia de un productor',4],['El suelo y la piedra',7],['El vino del mar',1],['La cosecha',8]].forEach(([t,f],i)=>{
+ $('#caps').appendChild(el('a',{class:'cap-c',href:IG,target:'_blank',rel:'noopener'},`<img src="img/cap${f}.jpg" alt="" loading="lazy"><span><small>Capítulo ${String(i+1).padStart(2,'0')}</small><b>${t}</b></span>`))});
+
+/* ===== NOTICIAS ===== */
+const cats=['Todas',...new Set(NOTICIAS.map(n=>n.cat))];let nc='Todas';
+cats.forEach(c=>{const b=el('button',{class:'chip','aria-pressed':c===nc},c);b.onclick=()=>{nc=c;$('#newsFlt').querySelectorAll('.chip').forEach(z=>z.setAttribute('aria-pressed',z===b));renderNews()};$('#newsFlt').appendChild(b)});
+function renderNews(){const N=$('#news');N.innerHTML='';NOTICIAS.filter(n=>nc==='Todas'||n.cat===nc).forEach(n=>{N.appendChild(el('article',{class:'nw'},`<div class="im"><img src="img/${n.img}" alt="" loading="lazy"></div>
+ <div class="bd"><span class="m">${esc(n.cat)} · ${esc(n.f)}</span><h3>${esc(n.t)}</h3><p>${esc(n.r)}</p></div>
+ <div class="ft"><span>Fuente: ${esc(n.medio)} · <a href="${IG}" target="_blank" rel="noopener" style="letter-spacing:0;text-transform:none">Ver en Instagram</a></span>${n.url?`<a href="${n.url}" target="_blank" rel="noopener">Leer más →</a>`:''}</div>`))})}
+renderNews();
+
+/* ===== TERRITORIO ===== */
+function terr(i){const t=TERRITORIO[i];$('#terrPane').innerHTML=`<img src="img/${t.img}" alt="${esc(t.alt)}"><div class="t"><span class="eyebrow" style="color:#F0D3A8">${esc(t.k)}</span><h3>${esc(t.t)}</h3><p>${esc(t.p)}</p><span class="src">Fuente: ${esc(t.src)}</span></div>`;
+ document.querySelectorAll('#terrTabs button').forEach((b,j)=>{b.classList.toggle('on',j===i);b.setAttribute('aria-selected',j===i)})}
+TERRITORIO.forEach((t,i)=>{const b=el('button',{role:'tab'},`<b>${esc(t.k)}</b><small>${esc(t.s)}</small>`);b.onclick=()=>terr(i);$('#terrTabs').appendChild(b)});terr(0);
+
+/* ===== CONTACTO ===== */
+$('#fContacto').onsubmit=e=>{e.preventDefault();let ok=true;const chk=(id,cond,msg)=>{const i=$(id);const er=i.parentElement.querySelector('.err');i.setAttribute('aria-invalid',!cond);er.textContent=cond?'':msg;if(!cond)ok=false};
+ chk('#cNombre',$('#cNombre').value.trim().length>1,'Ingrese su nombre.');chk('#cMail',/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('#cMail').value),'Verifique el correo electrónico (por ejemplo, nombre@correo.com).');
+ chk('#cMotivo',!!$('#cMotivo').value,'Seleccione un motivo.');chk('#cMsj',$('#cMsj').value.trim().length>4,'Indique el motivo de su consulta.');
+ if(ok){const o=$('#cOk');o.hidden=false;o.innerHTML='<div class="okbox"><b>Consulta recibida</b><span>Gracias por escribirnos. Le responderemos a la brevedad. (Prototipo: el mensaje no se envía).</span></div>'}};
+$('#copyLink').onclick=()=>{const u=location.href.split('#')[0];navigator.clipboard.writeText(u).then(()=>toast('Enlace copiado')).catch(()=>toast('No se pudo copiar. Copiá la dirección desde el navegador.'))};
+
+/* volver arriba + reveal */
+const tt=$('#toTop');tt.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});addEventListener('scroll',()=>{tt.hidden=scrollY<900},{passive:true});
+if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.remove('pre');io.unobserve(x.target)}}),{threshold:.1});
+ document.querySelectorAll('.rv').forEach(r=>{if(r.getBoundingClientRect().top>innerHeight){r.classList.add('pre');io.observe(r)}})}
+})();
+</script>
+
+</body></html>
